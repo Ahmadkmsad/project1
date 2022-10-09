@@ -1,0 +1,15 @@
+C:\Users\AHMAD\Desktop\New folder (2)\test2\obj\Debug\net6.0\test2.csproj.AssemblyReference.cache
+C:\Users\AHMAD\Desktop\New folder (2)\test2\obj\Debug\net6.0\test2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AHMAD\Desktop\New folder (2)\test2\obj\Debug\net6.0\test2.AssemblyInfoInputs.cache
+C:\Users\AHMAD\Desktop\New folder (2)\test2\obj\Debug\net6.0\test2.AssemblyInfo.cs
+C:\Users\AHMAD\Desktop\New folder (2)\test2\obj\Debug\net6.0\test2.csproj.CoreCompileInputs.cache
+C:\Users\AHMAD\Desktop\New folder (2)\test2\bin\Debug\net6.0\test2.exe
+C:\Users\AHMAD\Desktop\New folder (2)\test2\bin\Debug\net6.0\test2.deps.json
+C:\Users\AHMAD\Desktop\New folder (2)\test2\bin\Debug\net6.0\test2.runtimeconfig.json
+C:\Users\AHMAD\Desktop\New folder (2)\test2\bin\Debug\net6.0\test2.dll
+C:\Users\AHMAD\Desktop\New folder (2)\test2\bin\Debug\net6.0\test2.pdb
+C:\Users\AHMAD\Desktop\New folder (2)\test2\obj\Debug\net6.0\test2.dll
+C:\Users\AHMAD\Desktop\New folder (2)\test2\obj\Debug\net6.0\refint\test2.dll
+C:\Users\AHMAD\Desktop\New folder (2)\test2\obj\Debug\net6.0\test2.pdb
+C:\Users\AHMAD\Desktop\New folder (2)\test2\obj\Debug\net6.0\test2.genruntimeconfig.cache
+C:\Users\AHMAD\Desktop\New folder (2)\test2\obj\Debug\net6.0\ref\test2.dll
