@@ -466,3 +466,129 @@ namespace ConsoleApplication3
     }
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
+
+class Employee  
+{
+    
+    public virtual int grossSalary()
+
+    {
+        return 0;
+    }
+}
+
+class Engineer:Employee
+
+{
+    private int baseSalary = 0;
+    private int annualAllowance = 0;
+
+    public Engineer(int baseSalary,int annualAllowance) : base()
+    {
+        this.baseSalary = baseSalary;
+        this.annualAllowance = annualAllowance;
+
+
+    }
+
+    public override int grossSalary()
+    {
+        int finalSalary = annualAllowance + baseSalary * 12;
+         return finalSalary;
+    }
+}
+class Manager : Employee
+{
+    private int baseSalary = 0;
+    private int fuelAllowance = 0;
+    private int medicalAllowance = 0;
+    private int tax = 0;
+
+    public Manager(int baseSalary, int fuelAllowance, int medicalAllowance, int tax) : base()
+    {
+
+        this.tax = tax;
+
+        this.baseSalary = baseSalary;
+
+        this.medicalAllowance = medicalAllowance;
+        this.fuelAllowance = fuelAllowance;
+
+    }
+
+    public override int grossSalary()
+    {
+        int finalSalary = (baseSalary * 12 + fuelAllowance * 12 + medicalAllowance * 12) - (tax * (baseSalary * 12 + fuelAllowance * 12 + medicalAllowance * 12) / 100);
+        return finalSalary;
+    }
+}
+
+class HR: Employee
+{
+    public  int telephoneAllowance = 0;
+    private int baseSalary = 0;
+    private int fuelAllowance = 0;
+    private int medicalAllowance = 0;
+    public HR(int baseSalary, int fuelAllowance, int medicalAllowance, int telephoneAllowance) : base()
+    {
+        this.baseSalary = baseSalary;
+
+        this.medicalAllowance = medicalAllowance;
+        this.fuelAllowance = fuelAllowance;
+
+        this.telephoneAllowance = telephoneAllowance;
+
+    }
+
+    public override int grossSalary()
+    {
+        int finalSalary = (baseSalary * 12 + fuelAllowance * 12 + medicalAllowance * 12);
+        int increment = telephoneAllowance*(medicalAllowance+fuelAllowance)/100;
+        return finalSalary + increment;
+    }
+}
+
+
+
+class Program
+{
+    static void Main(string[] args)
+
+    {   
+        Console.WriteLine("Enter number for designation: ");
+        Console.WriteLine("1: Engineer");
+        Console.WriteLine("2: Manager");
+        Console.WriteLine("3: HR");
+       
+        int number = Convert.ToInt32(Console.ReadLine());
+        if (number==1)
+        {
+             Engineer salaryCount = new Engineer(1500,7000);
+                
+             Console.WriteLine("Engineer Gross Salay is: " + salaryCount.grossSalary());
+        }
+        if (number==2)
+        {
+            Manager salaryCount = new Manager(1500, 250, 1000, 17);
+
+            Console.WriteLine("Engineer Gross Salay is: " + salaryCount.grossSalary());
+        }
+        
+        else if (number == 3)
+        {
+            HR salaryCount = new HR(1500, 150, 800, 10);
+
+            Console.WriteLine("HR Gross Salay is: " + salaryCount.grossSalary());
+        }
+        else
+        {
+            Console.WriteLine("Enter correct value: 1,2,3");
+        }
+
+       
+        Console.Read();
+    }
+}
+
