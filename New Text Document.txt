@@ -1,0 +1,234 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace WebApplication1.Controllers
+{
+    public class Book
+    {
+        public string category { get; set; }
+
+        public string name { get; set; }
+        public int shelfnumber { get; set; }
+        public int price { get; set; }
+        public string author { get; set; }
+    }
+    public class User
+    {
+        public string id { get; set; }
+
+        public string name { get; set; }
+
+        public List<string> issuedbooks { get; set; }
+    }
+    [ApiController]
+    
+    public class WeatherForecastController : ControllerBase
+    {
+        public List<Book> booksList = new List<Book>
+        {    //Task1
+              new  Book {category="Action",  name="book1", shelfnumber=1, price=100,author="hrney"},
+              new  Book {category="Thriler", name="book2", shelfnumber=2, price=200,author="julia"},
+              new  Book {category="Crime",   name="book3", shelfnumber=3, price=200,author="john"},
+              new  Book {category="Funny",   name="book4", shelfnumber=4, price=400,author="Ned"},
+              new  Book {category="Action",   name="book5", shelfnumber=5, price=500,author="stark"},
+              new  Book {category="Motivational", name="book6", shelfnumber=1, price=100,author="dragon"},
+              new  Book {category="Action", name="book7", shelfnumber=6, price=200,author="lanister"},
+
+              new  Book {category="Thriler", name="book8", shelfnumber=7, price=100,author="juhi"},
+              new  Book {category="Horror", name="book9", shelfnumber=8, price=400,author="johen"},
+              new  Book {category="Action", name="book10", shelfnumber=1, price=600,author="taker"},
+              new  Book {category="Funny", name="book11", shelfnumber=2, price=700,author="henry"},
+              new  Book {category="Crime", name="book12", shelfnumber=3, price=900,author="waris"},
+              new  Book {category="Thriler", name="book13", shelfnumber=4, price=1030,author="atif"},
+              new  Book {category="Motivational", name="book14", shelfnumber=5, price=1020,author="usman"},
+              new  Book {category="Motivational", name="book15", shelfnumber=1, price=1060,author="kamran"},
+              new  Book {category="Crime", name="book16", shelfnumber=1, price=100,author="imran"},
+              new  Book {category="Motivational", name="book17", shelfnumber=7, price=5100,author="bilaal"},
+              new  Book {category="Funny", name="book18", shelfnumber=6, price=3100,author="dollars"},
+              new  Book {category="Thriler", name="book19", shelfnumber=8, price=3100,author="naeem"},
+
+              new  Book {category="Action", name="book20", shelfnumber=1, price=1100,author="ali"},
+
+
+        };
+
+        public List<User> userList = new List<User>
+        {    //Task2
+              new User { id="01",name="user1",  issuedbooks=new List<string>(){"book1","book2"}},
+              new User { id="02",name="user2", issuedbooks=new List<string>(){"book3","book4"}},
+              new User { id="03",name="user3", issuedbooks=new List<string>(){"book5","book6"}},
+              new User { id="04",name="user4",  issuedbooks=new List<string>(){"book7","book8"}},
+              new User { id="05",name="user5", issuedbooks=new List<string>(){"book9","book10"}},
+              new User { id="06",name="user6", issuedbooks=new List<string>(){"book11","book12"}},
+              new User { id="07",name="user7", issuedbooks=new List<string>(){"book13","book14"}},
+              new User { id="08",name="user8", issuedbooks=new List<string>(){"book15","book16"}},
+              new User { id="09",name="user9",  issuedbooks=new List<string>(){"book17","book18"}},
+              new User { id="010",name="user10",issuedbooks=new List<string>(){"book19","book20"}}
+        };
+        //Task3
+        [Route("get")]
+        [HttpGet]
+        public List<string> Get(string id)
+        {
+          
+
+            List<string> result = (from i in booksList select i.name).ToList();
+            return result;
+        }
+        //task14
+        [Route("removebook/{name}")]
+        [HttpDelete]
+        public List<string> removebookfunc(string name)
+        {
+            List<string> issuebooksList = new List<string>() { "Issued Books List"};
+            foreach (var u in userList)
+            {
+                if (u.issuedbooks.Contains(name))
+                {
+                    u.issuedbooks.Remove(name);
+                }
+                foreach (string b in u.issuedbooks)
+                {
+
+                    issuebooksList.Add(b);
+                };
+
+            };
+            return issuebooksList;
+        }
+        //Task6
+        [Route("user/{id}")]
+        [HttpGet]
+        public List<string> Getuser(string id)
+        {
+
+
+
+            List<string> userresult = new List<string>();
+
+
+            foreach (var i in userList)
+            {
+
+                if (i.id == id)
+                {
+                    string name = "id: " + (i.id).ToString();
+                    string price = "Name: " + (i.name).ToString();
+                    string author = "Issued Books: ";
+
+
+                    userresult.Add(name);
+                    userresult.Add(price);
+                    userresult.Add(author);
+                    for (int j = 0; j < i.issuedbooks.Count; j++)
+                    {
+                        userresult.Add(i.issuedbooks[j].ToString());
+                    }
+
+
+
+
+
+                }
+            }
+
+            return userresult;
+
+        }
+
+        //Task4
+        [Route("adduser")]
+        [HttpPost]
+        public List<User> AddUserlist([FromBody] User userinput)
+        {
+
+            userList.Add(userinput);
+            return userList;
+        }
+
+
+        //Task7
+        [Route("addbook")]
+        [HttpPost]
+        public List<Book> Addbook([FromBody] Book userinput)
+        {
+
+            booksList.Add(userinput);
+            return booksList;
+        }
+
+
+        //Task4
+        [Route("addusersystem")]
+        [HttpPost]
+        public List<User> AddUsersystem([FromBody] User userinput)
+        {
+
+            userList.Add(userinput);
+            return userList;
+        }
+
+        //Task5
+        [Route("bookdetail/{id}")]
+        [HttpGet]
+        public List<string> Getbookdetail(string id)
+        {
+            List<string> issuebooksList = new List<string>() { };
+            foreach (User i in userList)
+            {
+                for (int j = 0; j < i.issuedbooks.Count; j++)
+                {
+                    issuebooksList.Add(i.issuedbooks[j]);
+                }
+
+            };
+
+
+
+            List<string> result = new List<string>();
+
+            foreach (var i in booksList)
+            {
+
+                if (i.name == id)
+                {
+                    string name = "Name: " + (i.name).ToString();
+                    string price = "Price: " + (i.price).ToString();
+                    string author = "Author: " + (i.author).ToString();
+                    string category = "Category: " + (i.category).ToString();
+                    string shelfnumber = "Shelf Number: " + (i.shelfnumber).ToString();
+
+
+                    result.Add(name);
+                    result.Add(price);
+                    result.Add(author);
+                    result.Add(category);
+                    result.Add(shelfnumber);
+                }
+            }
+            if (issuebooksList.Contains(id))
+            {
+                result.Add("Status:  Not Available");
+            }
+            else
+            {
+                result.Add("Status:  Available");
+            }
+
+
+            return result;
+
+     
+          
+
+
+
+
+
+        }
+    }
+}
