@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vertical Nav Bar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .nav-bar {
+            width: 20%;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-bar li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .content {
+            width: 80%;
+            padding: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .nav-bar {
+            width: 20%;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-bar li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .content {
+            width: 80%;
+            padding: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Form styles */
+        form {
+            max-width:100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #555;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            background-color: #444;
+            border: none;
+            color: #fff;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            cursor: pointer;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .add-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .add-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav-bar">
+            <ul>
+                <li data-content="basics">Basics</li>
+                <li data-content="location">Location</li>
+                <li data-content="profiles">Profiles</li>
+                <li data-content="work-experience">Work Experience</li>
+                <li data-content="education">Education</li>
+                <li data-content="awards">Awards</li>
+                <li data-content="certifications">Certifications</li>
+                <li data-content="publications">Publications</li>
+                <li data-content="skills">Skills</li>
+                <li data-content="languages">Languages</li>
+                <li data-content="interests">Interests</li>
+                <li data-content="volunteer">Volunteer</li>
+                <li data-content="projects">Projects</li>
+                <li data-content="references">References</li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div id="basics" class="hidden">
+                <h2>Basics</h2>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Your name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Your email" required>
+                    
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" placeholder="Your phone number" required>
+
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" required>
+
+                    <label for="website">Website:</label>
+                    <input type="url" id="website" placeholder="Your website URL">
+
+                    <label for="role">Role at Previous Company:</label>
+                    <input type="text" id="role" placeholder="Your role">
+
+                    <label for="description">What did you do at the company?</label>
+                    <textarea id="description" placeholder="Your responsibilities and achievements"></textarea>
+
+                   
+                </form>
+            </div>
+            <div id="location" class="hidden">
+                <h2>Location</h2>
+                <!-- Your form for Location module goes here -->
+                <input type="text" placeholder="City">
+                <input type="text" placeholder="Country">
+            </div>
+            <div id="profiles" class="hidden">
+                <h2>Profiles</h2>
+                <!-- Your form for Profiles module goes here -->
+                <input type="text" placeholder="LinkedIn">
+                <input type="text" placeholder="GitHub">
+                <button class="add-button" onclick="addBasicsInputFields()">Add More Inputs</button>
+            </div>
+            <div id="work-experience" class="hidden">
+                <h2>Work Experience</h2>
+                <!-- Your form for Work Experience module goes here -->
+                <input type="text" placeholder="Company">
+                <input type="text" placeholder="Position">
+                <button class="add-button" onclick="addworkexperienceInputFields()">Add More Inputs</button>
+            </div>
+            <div id="education" class="hidden">
+                <h2>Education</h2>
+                <!-- Your form for Education module goes here -->
+                <input type="text" placeholder="University">
+                <input type="text" placeholder="Degree">
+                <button class="add-button" onclick="addeducationInputFields()">Add More Inputs</button>
+            </div>
+            <div id="awards" class="hidden">
+                <h2>Awards</h2>
+                <!-- Your form for Awards module goes here -->
+                <input type="text" placeholder="Award Name">
+                <input type="text" placeholder="Year">
+                <button class="add-button" onclick="addawardsInputFields()">Add More Inputs</button>
+            </div>
+            <div id="certifications" class="hidden">
+                <h2>Certifications</h2>
+                <!-- Your form for Certifications module goes here -->
+                <input type="text" placeholder="Certification Name">
+                <input type="text" placeholder="Provider">
+                <button class="add-button" onclick="addcertificationsInputFields()">Add More Inputs</button>
+            </div>
+            <div id="publications" class="hidden">
+                <h2>Publications</h2>
+                <!-- Your form for Publications module goes here -->
+                <input type="text" placeholder="Publication Title">
+                <input type="text" placeholder="Year">
+                <button class="add-button" onclick="addpublicationsInputFields()">Add More Inputs</button>
+            </div>
+            <div id="skills" class="hidden">
+                <h2>Skills</h2>
+                <!-- Your form for Skills module goes here -->
+                <input type="text" placeholder="Skill 1">
+                <input type="text" placeholder="Skill 2">
+                <button class="add-button" onclick="addskillsInputFields()">Add More Inputs</button>
+            </div>
+            <div id="languages" class="hidden">
+                <h2>Languages</h2>
+                <!-- Your form for Languages module goes here -->
+                <input type="text" placeholder="Language 1">
+                <input type="text" placeholder="Language 2">
+                <button class="add-button" onclick="addlanguagesInputFields()">Add More Inputs</button>
+            </div>
+            <div id="interests" class="hidden">
+                <h2>Interests</h2>
+                <!-- Your form for Interests module goes here -->
+                <input type="text" placeholder="Interest 1">
+                <input type="text" placeholder="Interest 2">
+                <button class="add-button" onclick="addinterestsInputFields()">Add More Inputs</button>
+            </div>
+            <div id="volunteer" class="hidden">
+                <h2>Volunteer</h2>
+                <!-- Your form for Volunteer module goes here -->
+                <input type="text" placeholder="Organization">
+                <input type="text" placeholder="Role">
+                <button class="add-button" onclick="addvolunteerInputFields()">Add More Inputs</button>
+            </div>
+            <div id="projects" class="hidden">
+                <h2>Projects</h2>
+                <!-- Your form for Projects module goes here -->
+                <input type="text" placeholder="Project Name">
+                <input type="text" placeholder="Description">
+                <button class="add-button" onclick="addprojectsInputFields()">Add More Inputs</button>
+            </div>
+            <div id="references" class="hidden">
+                <h2>References</h2>
+                <!-- Your form for References module goes here -->
+                <input type="text" placeholder="Reference Name">
+                <input type="text" placeholder="Position">
+                <button class="add-button" onclick="addreferencesInputFields()">Add More Inputs</button>
+            </div>
+        </div>
+
+        <script>
+            // Function to add additional input fields for "Profiles" module
+            function addProfilesInputFields() {
+                const profilesForm = document.getElementById("profiles").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                profilesForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "Work Experience" module
+            function addWorkExperienceInputFields() {
+                const workExperienceForm = document.getElementById("work-experience").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                workExperienceForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "Education" module
+            function addEducationInputFields() {
+                const educationForm = document.getElementById("education").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                educationForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "Awards" module
+            function addAwardsInputFields() {
+                const awardsForm = document.getElementById("awards").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                awardsForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "Certifications" module
+            function addCertificationsInputFields() {
+                const certificationsForm = document.getElementById("certifications").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                certificationsForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "Publications" module
+            function addPublicationsInputFields() {
+                const publicationsForm = document.getElementById("publications").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                publicationsForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "Skills" module
+            function addSkillsInputFields() {
+                const skillsForm = document.getElementById("skills").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                skillsForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "Languages" module
+            function addLanguagesInputFields() {
+                const languagesForm = document.getElementById("languages").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                languagesForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "Interests" module
+            function addInterestsInputFields() {
+                const interestsForm = document.getElementById("interests").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                interestsForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "Volunteer" module
+            function addVolunteerInputFields() {
+                const volunteerForm = document.getElementById("volunteer").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                volunteerForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "Projects" module
+            function addProjectsInputFields() {
+                const projectsForm = document.getElementById("projects").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                projectsForm.appendChild(inputGroup);
+            }
+        
+            // Function to add additional input fields for "References" module
+            function addReferencesInputFields() {
+                const referencesForm = document.getElementById("references").querySelector("form");
+                const inputGroup = document.createElement("div");
+                inputGroup.innerHTML = `
+                    <label for="new-input">Additional Input:</label>
+                    <input type="text" id="new-input" placeholder="Your additional input" required>
+                `;
+                referencesForm.appendChild(inputGroup);
+            }
+        
+            const navItems = document.querySelectorAll('.nav-bar li');
+            const contentDivs = document.querySelectorAll('.content div');
+        
+            function hideAllContentDivs() {
+                contentDivs.forEach(div => div.classList.add('hidden'));
+            }
+        
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const contentId = item.getAttribute('data-content');
+                    hideAllContentDivs();
+                    document.getElementById(contentId).classList.remove('hidden');
+                });
+            });
+        </script>
+        
+</body>
+
+</html>
